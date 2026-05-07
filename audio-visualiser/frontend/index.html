@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio Visualiser — Week 1 Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Real-Time Audio Visualiser</h1>
+      <p class="subtitle">Week 1 Prototype — Raw waveform capture</p>
+    </header>
+
+    <section class="controls">
+      <button id="startBtn" type="button">Start microphone</button>
+      <button id="stopBtn" type="button" disabled>Stop</button>
+      <p id="status" class="status">Click "Start microphone" to begin.</p>
+    </section>
+
+    <section class="visualiser">
+      <canvas id="waveformCanvas" width="900" height="300"></canvas>
+    </section>
+
+    <footer>
+      <p>COMP4060 CPD Project — Harvey Sturley</p>
+    </footer>
+  </main>
+
+  <script src="audio.js"></script>
+</body>
+</html>

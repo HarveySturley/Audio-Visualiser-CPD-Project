@@ -1,0 +1,93 @@
+<svg width="100%" viewBox="0 0 680 460" xmlns="http://www.w3.org/2000/svg">
+  <title>Audio Visualiser system architecture</title>
+  <desc>Three-tier architecture: browser frontend with Web Audio API and Canvas renderer, Flask REST API backend, PostgreSQL database, deployed to AWS.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .label-title { font: 500 14px sans-serif; fill: #042C53; }
+      .label-sub   { font: 400 12px sans-serif; fill: #185FA5; }
+      .label-text  { font: 400 12px sans-serif; fill: #444; }
+      .frontend  { fill: #E6F1FB; stroke: #185FA5; }
+      .audio     { fill: #E1F5EE; stroke: #0F6E56; }
+      .audio-t   { fill: #04342C; }
+      .audio-s   { fill: #0F6E56; }
+      .backend   { fill: #EEEDFE; stroke: #534AB7; }
+      .backend-t { fill: #26215C; }
+      .backend-s { fill: #534AB7; }
+      .db        { fill: #FAECE7; stroke: #993C1D; }
+      .db-t      { fill: #4A1B0C; }
+      .db-s      { fill: #993C1D; }
+      .cloud     { fill: #FAEEDA; stroke: #854F0B; }
+      .cloud-t   { fill: #412402; }
+      .cloud-s   { fill: #854F0B; }
+      .neutral   { fill: #F1EFE8; stroke: #5F5E5A; }
+      .neutral-t { fill: #2C2C2A; }
+      .neutral-s { fill: #5F5E5A; }
+      .arr       { stroke: #444; stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Microphone -->
+  <rect x="40" y="60" width="120" height="56" rx="8" class="neutral" stroke-width="0.5"/>
+  <text x="100" y="82" text-anchor="middle" dominant-baseline="central" class="neutral-t" style="font: 500 14px sans-serif">Microphone</text>
+  <text x="100" y="100" text-anchor="middle" dominant-baseline="central" class="neutral-s" style="font: 400 12px sans-serif">Audio input</text>
+
+  <!-- Frontend container -->
+  <rect x="200" y="40" width="280" height="200" rx="12" class="frontend" stroke-width="0.5"/>
+  <text x="340" y="64" text-anchor="middle" class="label-title">Browser frontend</text>
+  <text x="340" y="82" text-anchor="middle" class="label-sub">Weeks 1 to 3</text>
+
+  <!-- Web Audio block -->
+  <rect x="220" y="110" width="240" height="50" rx="8" class="audio" stroke-width="0.5"/>
+  <text x="340" y="128" text-anchor="middle" dominant-baseline="central" class="audio-t" style="font: 500 14px sans-serif">Web Audio API</text>
+  <text x="340" y="146" text-anchor="middle" dominant-baseline="central" class="audio-s" style="font: 400 12px sans-serif">Capture, FFT analysis</text>
+
+  <!-- Canvas renderer -->
+  <rect x="220" y="170" width="240" height="50" rx="8" class="audio" stroke-width="0.5"/>
+  <text x="340" y="188" text-anchor="middle" dominant-baseline="central" class="audio-t" style="font: 500 14px sans-serif">Canvas renderer</text>
+  <text x="340" y="206" text-anchor="middle" dominant-baseline="central" class="audio-s" style="font: 400 12px sans-serif">Waveform, frequency bars</text>
+
+  <!-- Mic to frontend -->
+  <line x1="160" y1="88" x2="218" y2="135" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- Web Audio to Canvas -->
+  <line x1="340" y1="160" x2="340" y2="170" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- Backend -->
+  <rect x="520" y="80" width="130" height="80" rx="8" class="backend" stroke-width="0.5"/>
+  <text x="585" y="108" text-anchor="middle" dominant-baseline="central" class="backend-t" style="font: 500 14px sans-serif">Flask backend</text>
+  <text x="585" y="126" text-anchor="middle" dominant-baseline="central" class="backend-s" style="font: 400 12px sans-serif">REST API</text>
+  <text x="585" y="144" text-anchor="middle" dominant-baseline="central" class="backend-s" style="font: 400 12px sans-serif">Week 4</text>
+
+  <!-- Frontend to backend -->
+  <line x1="480" y1="120" x2="518" y2="120" class="arr" marker-end="url(#arrow)"/>
+  <text x="500" y="112" text-anchor="middle" class="label-text">HTTP / JSON</text>
+
+  <!-- Database -->
+  <rect x="520" y="280" width="130" height="80" rx="8" class="db" stroke-width="0.5"/>
+  <text x="585" y="308" text-anchor="middle" dominant-baseline="central" class="db-t" style="font: 500 14px sans-serif">PostgreSQL</text>
+  <text x="585" y="326" text-anchor="middle" dominant-baseline="central" class="db-s" style="font: 400 12px sans-serif">Session storage</text>
+  <text x="585" y="344" text-anchor="middle" dominant-baseline="central" class="db-s" style="font: 400 12px sans-serif">Week 5</text>
+
+  <!-- Backend to DB -->
+  <line x1="585" y1="160" x2="585" y2="278" class="arr" marker-end="url(#arrow)"/>
+  <text x="615" y="222" text-anchor="middle" class="label-text">SQL</text>
+
+  <!-- AWS deployment -->
+  <rect x="200" y="290" width="280" height="80" rx="12" class="cloud" stroke-width="0.5" stroke-dasharray="4 3"/>
+  <text x="340" y="318" text-anchor="middle" dominant-baseline="central" class="cloud-t" style="font: 500 14px sans-serif">AWS deployment</text>
+  <text x="340" y="336" text-anchor="middle" dominant-baseline="central" class="cloud-s" style="font: 400 12px sans-serif">EC2 + RDS hosting</text>
+  <text x="340" y="354" text-anchor="middle" dominant-baseline="central" class="cloud-s" style="font: 400 12px sans-serif">Week 6</text>
+
+  <!-- Legend -->
+  <rect x="40" y="410" width="14" height="14" rx="3" class="frontend" stroke-width="0.5"/>
+  <text x="60" y="421" dominant-baseline="central" class="label-text">Frontend</text>
+  <rect x="140" y="410" width="14" height="14" rx="3" class="backend" stroke-width="0.5"/>
+  <text x="160" y="421" dominant-baseline="central" class="label-text">Backend</text>
+  <rect x="240" y="410" width="14" height="14" rx="3" class="db" stroke-width="0.5"/>
+  <text x="260" y="421" dominant-baseline="central" class="label-text">Database</text>
+  <rect x="340" y="410" width="14" height="14" rx="3" class="cloud" stroke-width="0.5" stroke-dasharray="3 2"/>
+  <text x="360" y="421" dominant-baseline="central" class="label-text">Cloud / deployment</text>
+</svg>

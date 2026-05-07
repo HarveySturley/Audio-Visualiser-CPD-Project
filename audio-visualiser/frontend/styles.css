@@ -1,0 +1,108 @@
+/*
+ * Audio Visualiser — Week 1 styles
+ *
+ * Deliberately minimal. The point of Week 1 is to prove the audio pipeline
+ * works. UI polish is scheduled for Week 3.
+ */
+
+:root {
+  --bg: #0e0f13;
+  --panel: #1a1c22;
+  --text: #e6e8ee;
+  --muted: #8b8fa3;
+  --accent: #4f9eff;
+  --danger: #ff6b6b;
+  --border: #2a2d36;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+header h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.75rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 0 0 2rem 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+button:disabled {
+  background: var(--border);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  flex-basis: 100%;
+}
+
+.status.error {
+  color: var(--danger);
+}
+
+.visualiser {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #000;
+  border-radius: 4px;
+}
+
+footer {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
