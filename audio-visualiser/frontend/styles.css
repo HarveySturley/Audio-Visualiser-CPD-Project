@@ -106,3 +106,44 @@ footer {
   border-top: 1px solid var(--border);
   padding-top: 1rem;
 }
+
+/* --- Week 2: settings panel --- */
+
+.settings {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.settings label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.settings select,
+.settings input[type="range"] {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.settings input[type="range"] {
+  padding: 0;
+  accent-color: var(--accent);
+}
+
+#smoothingValue {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
